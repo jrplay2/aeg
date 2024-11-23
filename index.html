@@ -1,27 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- Mantenha a tag meta viewport para dispositivos móveis -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEBSITE-NAME</title>
     <style>
-        /* Remover margens e preencher toda a altura */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            overflow: hidden;
         }
-        /* Estilizar o iframe para ser responsivo */
         iframe {
-            display: block;
+            position: absolute;
+            left: 0;
             width: 100%;
             height: 100%;
-            border: none; /* Opcional: remove a borda do iframe */
+            border: none;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://aegpersonalizados2.wixsite.com/aeg-personalizados"></iframe>
+    <iframe id="responsiveIframe" src="https://aegpersonalizados2.wixsite.com/aeg-personalizados" allowfullscreen></iframe>
+
+    <script>
+        function adjustIframe() {
+            const iframe = document.getElementById('responsiveIframe');
+            const isMobile = window.innerWidth <= 600;
+            if (isMobile) {
+                iframe.style.top = '-30px';
+                iframe.style.height = 'calc(100% + 30px)';
+            } else if (window.innerWidth <= 1024) {
+                iframe.style.top = '-40px';
+                iframe.style.height = 'calc(100% + 40px)';
+            } else {
+                iframe.style.top = '-51px';
+                iframe.style.height = 'calc(100% + 51px)';
+            }
+        }
+
+        // Ajustar o iframe ao carregar a página e ao redimensionar a janela
+        window.addEventListener('load', adjustIframe);
+        window.addEventListener('resize', adjustIframe);
+    </script>
 </body>
 </html>
