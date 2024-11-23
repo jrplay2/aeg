@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mantenha a tag meta viewport para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEBSITE-NAME</title>
     <style>
-        /* Garantir que o html e o body ocupem 100% da altura */
-        html, body {
+        /* Remover margens e preencher toda a altura */
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
         }
-        /* Estilos para o iframe */
+        /* Estilizar o iframe para ser responsivo */
         iframe {
-            border: none;
+            display: block;
             width: 100%;
             height: 100%;
-        }
-        /* Ajustes específicos para dispositivos móveis (opcional) */
-        @media (max-width: 768px) {
-            iframe {
-                height: 100vh; /* 100% da altura da viewport */
-            }
+            border: none; /* Opcional: remove a borda do iframe */
         }
     </style>
 </head>
