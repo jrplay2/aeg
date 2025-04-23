@@ -30,19 +30,23 @@
             const iframe = document.getElementById('responsiveIframe');
             const w = window.innerWidth;
 
-            // sempre resetamos top em 0
+            // sempre fixamos o topo em 0
             iframe.style.top = '0';
 
             if (w <= 600) {
-                // mobile: corta 30px embaixo
-                iframe.style.bottom = '-30px';
-                iframe.style.height = 'calc(100% + 30px)';
-            } else if (w <= 1024) {
-                // tablet/pequenos laptops: corta 40px embaixo
+                // MOBILE: engordamos a faixa em 30%
+                const baseThickness = 30;                  // valor original
+                const newThickness  = Math.round(baseThickness * 1.3); // aprox. 39px
+                iframe.style.bottom = `-${newThickness}px`;
+                iframe.style.height = `calc(100% + ${newThickness}px)`;
+            }
+            else if (w <= 1024) {
+                // TABLET / small laptop: mantemos 40px (ou ajuste se desejar)
                 iframe.style.bottom = '-40px';
                 iframe.style.height = 'calc(100% + 40px)';
-            } else {
-                // desktop: corta 51px embaixo
+            }
+            else {
+                // DESKTOP: mantemos 51px (ou ajuste se desejar)
                 iframe.style.bottom = '-51px';
                 iframe.style.height = 'calc(100% + 51px)';
             }
